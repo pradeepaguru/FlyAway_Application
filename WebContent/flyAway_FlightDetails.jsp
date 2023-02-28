@@ -15,42 +15,50 @@
 <link rel="stylesheet" href="styleSheet.css">
 </head>
 <body>
+
+
+
 	<!-- sql:setDataSource tag -->
 	<sql:setDataSource var="db" driver="com.mysql.jdbc.Driver"
-		url="jdbc:mysql://localhost:3306/project2" user="root" password="root" />
+		url="jdbc:mysql://localhost:3306/project1" user="root" password="root" />
 
 	<c:set var="sessionDate" value="${param.date}" scope="session" />
 	<c:set var="sessionSource" value="${param.source}" scope="session" />
 	<c:set var="sessionDestination" value="${param.destination}" scope="session" />
 	<c:set var="sessionNumberPassengers" value="${param.number}" scope="session" />
-	<h4>Searching for flights:</h4>
-	<h3>
-		Date
+	<c:set var="sessionClass" value="${param.type}" scope="session" />
+	
+	<h4>
+		Date:
 		<c:out value="${sessionScope.sessionDate}" />
-	</h3>
-	<h3>
-		Source
+	</h4>
+	<h4>
+		Source:
 		<c:out value="${sessionScope.sessionSource}" />
-	</h3>
-	<h3>
-		Destination
+	</h4>
+	<h4>
+		Destination:
 		<c:out value="${sessionScope.sessionDestination}" />
-	</h3>
-	<h3>
-		Number of passengers
+	</h4>
+	<h4>
+		Class:
+		<c:out value="${sessionScope.sessionClass}" />
+	</h4>
+	<h4>
+		Number of passengers:
 		<c:out value="${sessionScope.sessionNumberPassengers}" />
-	</h3>
+	</h4>
 	<c:set var="count" value="0" scope="page" />
 	<sql:query dataSource="${db}" var="rs">  
 	SELECT * from flights;  
 </sql:query>
-
+<h3><i>Please see the avaliable options based on the above details selection</i> </h3>
 	<table border="2" width="100%">
 		<tr>
 
 			
 			<th>Airline</th>
-			<th>Price($)</th>
+			<th>Price(IND)</th>
 			<th>Flight No</th>
 			<th>Source City</th>
 			<th>Destination City</th>
@@ -65,22 +73,17 @@
 
 		</tr>
 		<c:forEach var="table" items="${rs.rows}">
-			<tr>
-
-
+		
+			
 				<c:if test="${sessionScope.sessionDate eq table.travel_date}">
-					<c:if test="${sessionScope.sessionSource eq table.source_city}">
-						<c:if
+				<c:if test="${sessionScope.sessionSource eq table.source_city}">
+				<c:if
 							test="${sessionScope.sessionDestination eq table.destination_city}">
-							<c:if
+								<c:if
 								test="${sessionScope.sessionNumberPassengers <= table.seats_availible}">
-
-
-								
-								<c:if test="${count!= 0}">
-									
-								
-
+								<c:if
+								test="${sessionScope.sessionClass eq table.travel_class}">
+								<tr>	
 								<td><c:out value="${table.AirlineName}" /></td>
 								<td><c:out value="${table.price}" /></td>
 								<td><c:out value="${table.flight_no}" /></td>
@@ -94,73 +97,21 @@
 								<td><c:out value="${table.travel_date}" /></td>
 								<td><c:out value="${table.travel_class}" /></td>
 								<td>
-										<form method="POST" action="MregisterdetailsM.jsp">
-											<input value="Book Now" class="btn" name="flight2"
+										
+										<form method="POST" action="flyAway_Register.jsp">
+											<input value="${table.flight_no}" name="selectedflight"
 												type="submit" />
-										</form> </td>
-</c:if>
-<c:if test="${count == 0}">
-									
-										<c:set var="count" value="${count + 1}" scope="page" />
-									<td><c:out value="${table.AirlineName}" /></td>
-								<td><c:out value="${table.price}" /></td>
-								<td><c:out value="${table.flight_no}" /></td>
-								<td><c:out value="${table.source_city}" /></td>
-								<td><c:out value="${table.destination_city}" /></td>
-								<td><c:out value="${table.departure_time}" /></td>
-								<td><c:out value="${table.arrival_time}" /></td>
-								<td><c:out value="${table.total_seats}" /></td>
-								<td><c:out value="${table.booked_seats}" /></td>
-								<td><c:out value="${table.seats_availible}" /></td>
-								<td><c:out value="${table.travel_date}" /></td>
-								<td><c:out value="${table.travel_class}" /></td>
-									<td>
-										<form method="POST" action="MregisterdetailsM.jsp">
-											<input value="Book Now" class="btn" name="flight1"
-												type="submit" />
-										</form> </td>
-																	
-								</c:if>
-							</c:if>
-						</c:if>
-					</c:if>
-				</c:if>
-			</tr>
-		</c:forEach>
+										</form> </td> 
+                            </tr>
+                            </c:if>
+                            	</c:if>
+                            	</c:if>
+                            	</c:if>
+                            		</c:if>                          											
+			</c:forEach>
 	</table>
 
 
-
-
-
-	<%--
-		
-		 <c:set var="sessionUsername" value="${param.username}" scope="session" />
-		 --%>
-	<%--		
-		  <c:redirect url="searchflights.jsp"> </c:redirect>
-		 </c:if>
-		</c:if>
-		 
---%>
-
-
-
-
-	<%--
-date: <%= request.getParameter("date") %> <br>
-source: <%= request.getParameter("source") %><br> 
-destination: <%= request.getParameter("destination") %><br> 
-source: <%= request.getParameter("number") %><br> 
---%>
-	<%--
-<br>
- <h3> You are logged in as <c:out value="${sessionScope.sessionUsername}"/> </h3>
- <br>
-
---%>
-<c:set var="flight1" value="${request.getParameter('flight1') }" scope="session"/>
-<c:set var="flight2" value="${request.getParameter('flight2') } " scope="session"/>
 
 </body>
 </html>

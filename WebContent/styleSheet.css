@@ -10,10 +10,12 @@ h1 {
   margin-left: 20px;
 }
 
-h2,h4,h3{
+h2,h4,h3,h5{
 	color: white;
 	text-align: center;
 }
+
+
 
 form{
 	text-align: center;

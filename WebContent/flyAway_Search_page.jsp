@@ -22,27 +22,36 @@
 <form action="flyAway_FlightDetails.jsp">
   <label for="date">Date of travel:</label>
   <select id="date" name="date">
-    <option value="04-04-2023">04-04-2023</option>
-    <option value="2022-09-01">2023-05-05</option>
+   <option value="">Select Date</option>
+    <option value="10-10-2023">10-10-2023</option>
+    <option value="03-03-2023">03-03-2023</option>
   </select>
   
    <label for="source">Source city:</label>
   <select id="source" name="source">
-    <option value="Ellington">Singapore</option>
-    <option value="Lisbon">Lisbon</option>
-    <option value="Cape Town">Cape Town</option>
-    <option value="New York">New York</option>
+   <option value="">Select City</option>
+    <option value="Chennai">Chennai</option>
+      <option value="Madurai">Madurai</option>
+   
   </select>
   
      <label for="destination">Destination city:</label>
   <select id="destination" name="destination">
-  <option value="Hartford County">New York</option>
-    <option value="Lisbon">Lisbon</option>
-    <option value="Cape Town">Cape Town</option>
-    
-    <option value="Singapore">Singapore</option>
+  <option value="">Select City</option>
+<option value="Chennai">Chennai</option>
+      <option value="Madurai">Madurai</option>
   </select>
   
+  <br>
+  <br>
+  <label for="class">Class</label>
+     <input type="radio" id="economy" name="type" value="Economy">
+  <label for="economy">Economy</label>
+  
+  <input type="radio" id="buisness" name="type" value="Business">
+  <label for="buisness">Business</label>
+  <br>
+  <br>
        <label for="number">Number of persons:</label>
     <select id="number" name="number">
     <option value="1">1</option>
@@ -56,7 +65,7 @@
   </select>
   
   <br><br><br>
-  <input id="submit_btn" type="submit" value="Submit"> 
+  <input id="submit_btn" type="submit" value="Search"> 
 			<input id="reset_btn" type="reset" value="Cancel" />
 </form>
  

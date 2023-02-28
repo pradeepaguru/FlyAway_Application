@@ -35,11 +35,6 @@
 	<sql:query dataSource="${db}" var="rs">  
 	SELECT * from userlogin;  
 </sql:query>
-
-
-		<!-- Loop through the sql table values -->
-		<c:forEach var="table" items="${rs.rows}">
-			</c:forEach>
 			
 			<c:if test="${param.username != null}" >
 				<c:forEach var="table" items="${rs.rows}">
