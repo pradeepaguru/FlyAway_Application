@@ -1,0 +1,39 @@
+
+h1 {
+  color: navy;
+  margin-left: 20px;
+}
+
+h2,h4,h3{
+	color: white;
+	text-align: center;
+}
+
+form{
+	text-align: center;
+    padding-top: 25px;
+}
+
+
+p{
+	text-align: center;
+	color:red;
+	font-size: 40px;
+	
+}
+.labelText{
+	color:pink;
+}
+
+#submit_btn{
+	color:green;
+}
+#reset_btn{
+	color:red;
+}
+body {
+  background-image: url('flyAwayindex.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
