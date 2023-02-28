@@ -64,16 +64,21 @@ INSERT INTO booking_flights (email_username ,booking_id,flight_no ) VALUES (?, ?
 			<c:forEach var="table" items="${rs.rows}">
 			<c:if test="${table.flight_no eq sessionScope.flightNumber}">
 			<c:set var="seatCount" value= "${table.seats_availible}"  scope="session"/>
+			<c:set var="bookedseatCount" value= "${table.booked_seats}"  scope="session"/>
 			</c:if>
 			</c:forEach>
 			
 	<c:set var="newSeatCount" value= "${sessionScope.seatCount - sessionScope.sessionNumberPassengers}"  scope="session"/>
+	<c:set var="newbookedSeatCount" value= "${sessionScope.bookedseatCount + sessionScope.sessionNumberPassengers}"  scope="session"/>
 				<h4>Review Your Travel Details </h4>
 				
 Old Seat count<c:out value="${sessionScope.seatCount}" />
 New Seat Count<c:out value="${sessionScope.newSeatCount}" />
 Passengers <c:out value="${sessionScope.sessionNumberPassengers}" />
 Number <c:out value="${sessionScope.flightNumber}" />
+
+Old booked Seat count<c:out value="${sessionScope.bookedseatCount}" />
+New booked Seat Count<c:out value="${sessionScope.newbookedSeatCount}" />
 
 	<sql:query dataSource="${db}" var="rs">  
 	SELECT * from booking_flights;  
@@ -88,6 +93,15 @@ Number <c:out value="${sessionScope.flightNumber}" />
 	UPDATE flights SET seats_availible= ? WHERE flight_no = ?;
 	
     <sql:param value="${sessionScope.newSeatCount}" />
+    <sql:param value="${sessionScope.flightNumber}" />
+
+  </sql:update>
+  
+  <sql:update dataSource="${db}" var="rs">  
+
+	UPDATE flights SET booked_seats = ? WHERE flight_no = ?;
+	
+    <sql:param value="${sessionScope.newbookedSeatCount}" />
     <sql:param value="${sessionScope.flightNumber}" />
 
   </sql:update>
