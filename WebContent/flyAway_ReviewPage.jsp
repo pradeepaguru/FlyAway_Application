@@ -24,7 +24,7 @@
 <c:set var="semail" value= "${param.email}"  scope="session"/>
 <c:set var="sid" value= "${param.idnum}"  scope="session"/>
 <c:set var="scountry" value= "${param.country}"  scope="session"/>
-
+<c:set var="sidvalue" value= "${param.idvalue}"  scope="session"/>
 
 <!-- sql:setDataSource tag -->
 	<sql:setDataSource var="db" driver="com.mysql.jdbc.Driver"
@@ -47,7 +47,8 @@
 		<h4><b>Age: </b><c:out value="${sage}"></c:out></h4>
 		<h4><b>Phone: </b><c:out value="${smobile}"></c:out></h4>
 		<h4><b>Email:</b><c:out value="${semail}"></c:out></h4>
-		<h4><b>ID Number:</b><c:out value="${sid}"></c:out></h4>
+		<h4><b>ID Type:</b><c:out value="${sid}"></c:out></h4>
+		<h4><b>ID Number:</b><c:out value="${sidvalue}"></c:out></h4>
 		<h4><b>Country: </b><c:out value="${scountry}"></c:out></h4>
 		<h4><b>Ticket Cost: </b><c:out value="${ticketPrice}"></c:out></h4>
 		<h4><b>Total Ticket Cost:</b> <c:out value="${totalCost}"></c:out></h4>

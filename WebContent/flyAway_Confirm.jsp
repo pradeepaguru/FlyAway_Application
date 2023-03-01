@@ -18,15 +18,13 @@
 
 
 
-
 <!-- sql:setDataSource tag -->
 	<sql:setDataSource var="db" driver="com.mysql.jdbc.Driver"
 		url="jdbc:mysql://localhost:3306/project1" user="root" password="root" />
 		
-
      
-    <h3>Confirmation: Here are your flight details: </h3>
-   <h4> PNR code  <c:out value="QWe1324364544yyy4"></c:out> </h4>
+    <h3>Confirmation Code : <c:out value="QWe1324364544yyy4"></c:out>  </h3>
+    
 					<sql:query dataSource="${db}" var="rs">  
 			SELECT * from register_details;  
 		</sql:query>
@@ -65,20 +63,28 @@ INSERT INTO booking_flights (email_username ,booking_id,flight_no ) VALUES (?, ?
 			<c:if test="${table.flight_no eq sessionScope.flightNumber}">
 			<c:set var="seatCount" value= "${table.seats_availible}"  scope="session"/>
 			<c:set var="bookedseatCount" value= "${table.booked_seats}"  scope="session"/>
+			<c:set var="dtime" value= "${table.departure_time}"  scope="session"/>
+			<c:set var="atime" value= "${table.arrival_time}"  scope="session"/>
+			<c:set var="tdate" value= "${table.travel_date}"  scope="session"/>
+			<c:set var="class" value= "${table.travel_class}"  scope="session"/>
+			<c:set var="airline" value= "${table.AirlineName}"  scope="session"/>
+			
+			
 			</c:if>
 			</c:forEach>
 			
 	<c:set var="newSeatCount" value= "${sessionScope.seatCount - sessionScope.sessionNumberPassengers}"  scope="session"/>
 	<c:set var="newbookedSeatCount" value= "${sessionScope.bookedseatCount + sessionScope.sessionNumberPassengers}"  scope="session"/>
-				<h4>Review Your Travel Details </h4>
+				<h4>Here is your Itinerary Details </h4>
 				
-Old Seat count<c:out value="${sessionScope.seatCount}" />
-New Seat Count<c:out value="${sessionScope.newSeatCount}" />
-Passengers <c:out value="${sessionScope.sessionNumberPassengers}" />
-Number <c:out value="${sessionScope.flightNumber}" />
+    <h5> <b> Travel Date:</b><c:out value="${sessionScope.sessionDate}" /> </h5>
+	<h5> <b> Source City:</b><c:out value="${sessionScope.sessionSource}" /> </h5>
+	<h5> <b> Destination City:</b><c:out value="${sessionScope.sessionDestination}" /> </h5>
+	<h5> <b> Flight Number:</b><c:out value="${sessionScope.flightNumber }" /> </h5>
+	<h5> <b> Airline Name:</b><c:out value="${sessionScope.airline }" /> </h5>
+	<h5> <b> Origin Time:</b><c:out value="${sessionScope.atime }" /> </h5>
+	<h5> <b> Departure Time:</b><c:out value="${sessionScope.dtime }" /> </h5>
 
-Old booked Seat count<c:out value="${sessionScope.bookedseatCount}" />
-New booked Seat Count<c:out value="${sessionScope.newbookedSeatCount}" />
 
 	<sql:query dataSource="${db}" var="rs">  
 	SELECT * from booking_flights;  
