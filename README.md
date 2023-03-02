@@ -70,6 +70,14 @@ Once user enter the valid credentials it navigates to Search page
 
 
 
+### Change Password as Admin user
+
+
+
+<img src="/Images/admin.png" width="300" height= "300"/>
+<img src="/Images/change.png" width="300" height= "300"/>
+
+<img src="/Images/pwchange.png" width="300" height= "300"/>
 
 
 
