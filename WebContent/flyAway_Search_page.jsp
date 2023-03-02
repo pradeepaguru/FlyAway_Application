@@ -25,6 +25,7 @@
    <option value="">Select Date</option>
     <option value="10-10-2023">10-10-2023</option>
     <option value="03-03-2023">03-03-2023</option>
+     <option value="04-04-2023">03-03-2023</option>
   </select>
   
    <label for="source">Source city:</label>
@@ -32,6 +33,8 @@
    <option value="">Select City</option>
     <option value="Chennai">Chennai</option>
       <option value="Madurai">Madurai</option>
+       <option value="Delhi">Delhi</option>
+        <option value="Mumbai">Mumbai</option>
    
   </select>
   
@@ -40,6 +43,8 @@
   <option value="">Select City</option>
 <option value="Chennai">Chennai</option>
       <option value="Madurai">Madurai</option>
+       <option value="Delhi">Delhi</option>
+        <option value="Mumbai">Mumbai</option>
   </select>
   
   <br>

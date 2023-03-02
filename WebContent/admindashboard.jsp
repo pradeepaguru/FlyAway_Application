@@ -19,6 +19,7 @@
 
 
 <form action="changePassword.jsp" method="post" >
+<strong>Enter UserName</strong><input type="text" name="newusername" required/><br>
 <strong>Enter New Password</strong><input type="password" name="newpassword" required/><br>
 <strong>Enter Confirm Password</strong><input type="password" name="confirmpassword" required/><br>
 <br>

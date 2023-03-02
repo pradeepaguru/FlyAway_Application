@@ -40,7 +40,7 @@ p{
 	color:red;
 }
 
-.btn{
+.btn, #btn{
 	background-color:green;
 	color:white;
 }

@@ -99,7 +99,7 @@
 								<td>
 										
 										<form method="POST" action="flyAway_Register.jsp">
-											<input value="${table.flight_no}" name="selectedflight"
+											Book Now<input class=btn" value="${table.flight_no}" name="selectedflight"
 												type="submit" />
 										</form> </td> 
                             </tr>

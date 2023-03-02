@@ -18,7 +18,7 @@
 <body>
 	<!-- sql:setDataSource tag -->
 	<sql:setDataSource var="db" driver="com.mysql.jdbc.Driver"
-		url="jdbc:mysql://localhost:3306/flyaway" user="root" password="root" />
+		url="jdbc:mysql://localhost:3306/project1" user="root" password="root" />
 		
 	<h3>Please login</h3>                  
 		<form action="flyAway_Login.jsp" method="post" >

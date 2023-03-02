@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
@@ -18,13 +19,14 @@
 
 <c:set var="newadmin_password" value= "${param.newpassword}"  scope="session"/>
 <c:set var="confirmadmin_password" value= "${param.confirmpassword}"  scope="session"/>	
+<c:set var="admin_user_name" value= "${param.newusername}"  scope="session"/>	
  
 <!-- sql:setDataSource tag -->
 	<sql:setDataSource var="db" driver="com.mysql.jdbc.Driver"
 		url="jdbc:mysql://localhost:3306/project1" user="root" password="root" />
 		
 	<sql:query dataSource="${db}" var="rs">  
-	SELECT * from adminlogin;  
+	SELECT * from userlogin;  
 </sql:query>
 
 <c:forEach var="table" items="${rs.rows}">
@@ -36,11 +38,11 @@
 			</c:forEach>
 			
 <sql:query dataSource="${db}" var="rs">  
-			SELECT * from adminlogin;  
+			SELECT * from userlogin;  
 		</sql:query>
 	<sql:update dataSource="${db}" var="rs">  
 
-	UPDATE adminlogin SET Password= ? WHERE Name = ?;
+	UPDATE userlogin SET Password= ? WHERE Name = ?;
 	
     <sql:param value="${sessionScope.newadmin_password}" />
     <sql:param value="${sessionScope.admin_user_name}" />
@@ -48,6 +50,6 @@
   </sql:update>
 
 			
-  <h3>Password Successfully changed</h3>
+  <h3>Password Successfully changed for the user <c:out value="${sessionScope.admin_user_name}" /> </h3> 
 </body>
 </html>

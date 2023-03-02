@@ -1,0 +1,103 @@
+CREATE Table userlogin (
+    
+    Name varchar(255) NOT NULL,
+    Password varchar(255),
+PRIMARY KEY (Name)
+   
+);
+
+INSERT INTO userlogin (Name,Password)
+VALUES ('guru@gmail.com','sairam');
+
+CREATE Table adminlogin (
+    
+    Name varchar(255) NOT NULL,
+    Password varchar(255),
+PRIMARY KEY (Name)
+   
+);
+
+
+
+INSERT INTO adminlogin (Name,Password)
+VALUES ('Adminuser','qazwsx');
+
+
+
+
+
+- airline name
+ - price
+ - flight no (PRIMARY KEY)
+ - source city
+ - destination city
+ - departure time from source
+ - arrival time to destination
+ - total_seats
+ - booked_seats
+ - seat_availibility (  total_seats - booked_seats )
+ - date of travel
+ - class (Economy / Business)
+
+
+CREATE Table flights(
+    
+    AirlineName varchar(255),
+    price Int,
+    flight_no Int,
+    source_city varchar(255),
+    destination_city varchar(255),
+    departure_time varchar(255),
+    arrival_time varchar(255),
+    total_seats Int,
+    booked_seats Int,
+    seats_availible Int,
+    travel_date varchar(255),
+    travel_class varchar(255),
+ PRIMARY KEY (flight_no)
+);
+
+
+
+INSERT INTO flights (AirlineName,price,flight_no,source_city,destination_city,departure_time,arrival_time,total_seats,booked_seats,seats_availible,travel_date,travel_class)
+VALUES              ('Indigo',     12000, 78543,   'Chennai','Madurai','1:00',       '3:00',      16,         3,           16-3,        '10-10-2023','Business');
+
+
+INSERT INTO flights1 (AirlineName,price,flight_no,source_city,destination_city,departure_time,arrival_time,total_seats,booked_seats,seats_availible,travel_date,travel_class)
+VALUES              ('American Airlines',       3400, 83944,   'Chennai1','Madurai1','4:00',       '2:00',      15,         9,          15-9,        '04-04-2023','Economy');
+
+
+CREATE Table register_details (
+    
+    full_name varchar(255),
+    age Int,
+    mobile_phone varchar(255),
+    address varchar(255),
+    email_username varchar(255),
+    id_number varchar(255),
+    country varchar(255),
+    PRIMARY KEY (email_username)
+);
+
+ INSERT INTO register_details (full_name,address,age,mobile_phone, email_username  ,id_number  , country  )
+VALUES ('pradeepa','123 main street','20','2039078678','deepa@gmail.com',1234,'USA');
+
+
+
+
+create table booking_flights1(
+
+booking_id Int AUTO_INCREMENT,
+flight_no Int,
+email_username varchar(256),
+PRIMARY KEY (booking_id),
+
+CONSTRAINT  FK_fn FOREIGN KEY(flight_no) References flights(flight_no),
+
+CONSTRAINT FK_email FOREIGN KEY(email_username) References register_details(email_username)
+
+);
+
+
+
+
