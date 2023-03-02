@@ -39,8 +39,7 @@ Login Screen :
 flyaway_Login_jsp -> Combination of both HTML and JSP for login functionalities.
 Screen has Login Form with username and password fields
 Once user enter the valid credentials it navigates to Search page
-
-
+<img src="/images/login.png" width="300" height= "300"/>
 
 
 
