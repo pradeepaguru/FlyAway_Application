@@ -62,7 +62,7 @@ Once user enter the valid credentials it navigates to Search page
 
 ### Confirmation Screen:
 
-<img src="/Images/confirm .png" width="300" height= "300"/>
+<img src="/Images/confirm.png" width="300" height= "300"/>
 
 
 <img src="/Images/db3.png" width="300" height= "300"/>
