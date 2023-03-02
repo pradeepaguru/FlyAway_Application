@@ -13,15 +13,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Dakvin Fly Away Flight Booking Company</title>
 <link rel="stylesheet" href="flyAwayLogin.css">
-<h2>Welcome to Dakvin Airway </h2>
+<h2>Welcome to Admin </h2>
 </head>
 <body>
 	<!-- sql:setDataSource tag -->
 	<sql:setDataSource var="db" driver="com.mysql.jdbc.Driver"
-		url="jdbc:mysql://localhost:3306/flyaway" user="root" password="root" />
+		url="jdbc:mysql://localhost:3306/project1" user="root" password="root" />
 		
-	<h3>Please login</h3>                  
-		<form action="flyAway_Login.jsp" method="post" >
+	<h3>Only Admin users can change the password</h3>
+	<h3>Admin Login</h3>                  
+		<form action="adminLogin.jsp" method="post" >
 			<Strong>UserName:</Strong> <input type="text" name="username" required /><br>
 			<br>
 			<Strong>Password:</Strong> <input type="password" name="password" required /><br>
@@ -30,22 +31,21 @@
 			<input id="submit_btn" type="submit" value="Submit"> 
 			<input id="reset_btn" type="reset" value="Cancel" />
 		</form>
-	<h4>Password Change<a href="adminLogin.jsp">Click Here</a></h4>
+		
+		
 			<!-- sql:query  tag -->
 	<sql:query dataSource="${db}" var="rs">  
-	SELECT * from userlogin;  
-</sql:query>
-			
+	SELECT * from adminlogin;  
+    </sql:query>
 			<c:if test="${param.username != null}" >
 				<c:forEach var="table" items="${rs.rows}">
 					<c:if test="${param.username eq table.Name}">
 						<c:if test="${param.password eq table.Password}">
-							<c:set var="user_name" value="${param.username}"
+							<c:set var="admin_user_name" value="${param.username}"
 								scope="session" />
-		  					 <c:redirect url="flyAway_Search_page.jsp"></c:redirect>		
+		  				 <c:redirect url="admindashboard.jsp"></c:redirect>			
 			</c:if>
 			</c:if>
-		
 			</c:forEach>
 			<br>
 			<br>

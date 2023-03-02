@@ -16,7 +16,7 @@
 <body>
 
 
- <p> Welcome back <c:out value="${sessionScope.user_name}"/> </p>
+ <p> Welcome back <c:out value="${sessionScope.user_name}"/> </p> <a href="logout.jsp">Logout</a>
  <br>
  
 <form action="flyAway_FlightDetails.jsp">
