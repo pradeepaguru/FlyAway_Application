@@ -74,7 +74,7 @@ Once user enter the valid credentials it navigates to Search page
 
 
 
-<img src="/Images/admin.png" width="300" height= "300"/>
+<img src="/Images/adminpng.png" width="300" height= "300"/>
 <img src="/Images/change.png" width="300" height= "300"/>
 
 <img src="/Images/pwchange.png" width="300" height= "300"/>
