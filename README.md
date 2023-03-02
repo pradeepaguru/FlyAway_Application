@@ -31,15 +31,47 @@ The flow and features of the application:
 ● Implement the appropriate concepts, such as exceptions, collections, and sorting techniques for source code optimization and increased performance 
 
 
-Software Required :
+## Software Required :
 Ecllipse, Java , Servlet , JSP, Mysql
 
-Login Screen :
+### Login Screen :
 
 flyaway_Login_jsp -> Combination of both HTML and JSP for login functionalities.
 Screen has Login Form with username and password fields
 Once user enter the valid credentials it navigates to Search page
 <img src="/Images/login.png" width="300" height= "300"/>
+
+<img src="/Images/db1.png" width="300" height= "300"/>
+
+### Search Screen:
+<img src="/Images/search.png" width="300" height= "300"/>
+
+<img src="/Images/db2.png" width="300" height= "300"/>
+
+### Flight Details Display Screen:
+<img src="/Images/search.png" width="300" height= "300"/>
+
+### Review Screen
+
+<img src="/Images/review.png" width="300" height= "300"/>
+
+### Reservation Screen:
+
+<img src="/Images/reservation.png" width="300" height= "300"/>
+
+
+### Confirmation Screen:
+
+<img src="/Images/confirm .png" width="300" height= "300"/>
+
+
+<img src="/Images/db3.png" width="300" height= "300"/>
+
+
+
+
+
+
 
 
 
